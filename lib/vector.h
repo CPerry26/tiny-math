@@ -5,6 +5,8 @@
 #ifndef TINY_MATH_VECTOR_H
 #define TINY_MATH_VECTOR_H
 
+#include <cmath>
+
 namespace tinymath {
     template <typename T>
     struct Vec2
@@ -24,6 +26,16 @@ namespace tinymath {
         Vec2 operator-(const Vec2& other) const
         {
             return Vec2 { x - other.x, y - other.y };
+        }
+
+        T magnitude() const
+        {
+            return std::sqrt(std::pow(x, 2) + std::pow(y, 2));
+        }
+
+        T dot(const Vec2& vec) const
+        {
+            return (x * vec.x) + (y * vec.y);
         }
     };
 
@@ -46,6 +58,16 @@ namespace tinymath {
         {
             return Vec3 { x - other.x, y - other.y, z - other.z };
         }
+
+        T magnitude() const
+        {
+            return std::sqrt(std::pow(x, 2) + std::pow(y, 2) + std::pow(z, 2));
+        }
+
+        T dot(const Vec3& vec) const
+        {
+            return (x * vec.x) + (y * vec.y) + (z * vec.z);
+        }
     };
 
     template <typename T>
@@ -66,6 +88,16 @@ namespace tinymath {
         Vec4 operator-(const Vec4& other) const
         {
             return Vec4 { x - other.x, y - other.y, z - other.z, w - other.w };
+        }
+
+        T magnitude() const
+        {
+            return std::sqrt(std::pow(x, 2) + std::pow(y, 2) + std::pow(z, 2) + std::pow(w, 2));
+        }
+
+        T dot(const Vec4& vec) const
+        {
+            return (x * vec.x) + (y * vec.y) + (z * vec.z) + (w * vec.w);
         }
     };
 }
