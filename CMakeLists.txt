@@ -4,4 +4,5 @@ project(tiny_math)
 set(CMAKE_CXX_STANDARD 26)
 
 add_library(tiny_math STATIC library.cpp
-        lib/vector.h)
+        lib/vector.h
+        lib/math.h)

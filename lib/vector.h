@@ -7,7 +7,8 @@
 
 #include <cmath>
 
-namespace tinymath {
+namespace tinymath
+{
     template <typename T>
     struct Vec2
     {
@@ -36,6 +37,12 @@ namespace tinymath {
         T dot(const Vec2& vec) const
         {
             return (x * vec.x) + (y * vec.y);
+        }
+
+        void scalarMultiplication(T scalar)
+        {
+            x *= scalar;
+            y *= scalar;
         }
     };
 
@@ -68,6 +75,21 @@ namespace tinymath {
         {
             return (x * vec.x) + (y * vec.y) + (z * vec.z);
         }
+
+        Vec3 cross(const Vec3& vec) const
+        {
+            T newX = ((y * vec.z) - (z * vec.y));
+            T newY = ((z * vec.x) - (x * vec.z));
+            T newZ = ((x * vec.y) - (y * vec.x));
+            return Vec3 { newX, newY, newZ };
+        }
+
+        void scalarMultiplication(T scalar)
+        {
+            x *= scalar;
+            y *= scalar;
+            z *= scalar;
+        }
     };
 
     template <typename T>
@@ -99,7 +121,15 @@ namespace tinymath {
         {
             return (x * vec.x) + (y * vec.y) + (z * vec.z) + (w * vec.w);
         }
+
+        void scalarMultiplication(T scalar)
+        {
+            x *= scalar;
+            y *= scalar;
+            z *= scalar;
+            w *= scalar;
+        }
     };
 }
 
-#endif //TINY_MATH_VECTOR_H
+#endif
