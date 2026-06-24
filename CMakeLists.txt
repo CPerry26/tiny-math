@@ -3,7 +3,11 @@ project(tiny_math)
 
 set(CMAKE_CXX_STANDARD 26)
 
-add_library(tiny_math INTERFACE)
+add_library(tiny_math INTERFACE
+        lib/tinymath_mat.h
+        lib/tinymath_vec_math.h
+        lib/tinymath_vec.h
+        lib/tinymath_mat_math.h)
 
 target_include_directories(tiny_math INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 

@@ -7,7 +7,7 @@
 
 #include <cmath>
 
-namespace tinymath
+namespace tinymath::vector
 {
     template <typename T>
     struct Vec2
